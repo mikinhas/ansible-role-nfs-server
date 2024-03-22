@@ -1,6 +1,7 @@
 ---
 
 - name: Create Root NFS Directory
+  become: true
   ansible.builtin.file:
     path: "{{ nfs_server_root_directory }}"
     state: directory
@@ -9,6 +10,7 @@
     mode: "{{ nfs_server_root_directory_mode }}"
 
 - name: Configure Exports file
+  become: true
   ansible.builtin.template:
     src: exports.j2
     dest: /etc/exports
