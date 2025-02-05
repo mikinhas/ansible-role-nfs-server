@@ -2,4 +2,7 @@
 galaxy_info:
   role_name: ansible_role_nfs_server
   namespace: mikinhas
-
+  author: Michael MACHADO
+  description: NFS Server role
+  license: MIT
+  min_ansible_version: "2.16"
