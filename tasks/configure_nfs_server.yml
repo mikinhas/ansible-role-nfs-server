@@ -3,17 +3,20 @@
 - name: Create Root NFS Directory
   become: true
   ansible.builtin.file:
-    path: "{{ nfs_server_root_directory }}"
+    path: "{{ nfs_server_directory }}"
     state: directory
-    owner: "{{ nfs_server_root_directory_owner }}"
-    group: "{{ nfs_server_root_directory_group }}"
-    mode: "{{ nfs_server_root_directory_mode }}"
+    owner: "{{ nfs_server_directory_owner }}"
+    group: "{{ nfs_server_directory_group }}"
+    mode: "{{ nfs_server_directory_mode }}"
 
 - name: Configure Exports file
   become: true
   ansible.builtin.template:
     src: exports.j2
     dest: /etc/exports
+    owner: root
+    group: root
+    mode: "0644"
   notify:
     - Restart NFS Server
 
