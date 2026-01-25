@@ -6,8 +6,12 @@ driver:
   provider:
     name: virtualbox
 platforms:
-  - name: instance
+  - name: ubuntu-jammy
     box: bento/ubuntu-22.04
+    memory: 1024
+    cpus: 1
+  - name: ubuntu-noble
+    box: bento/ubuntu-24.04
     memory: 1024
     cpus: 1
 provisioner:

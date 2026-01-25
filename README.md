@@ -1,11 +1,15 @@
 # Ansible Role: NFS Server
 
-Installs and configures an NFS server on Debian/Ubuntu systems.
+Installs and configures an NFS server on Ubuntu systems.
 
 ## Requirements
 
 - Ansible >= 2.16
-- Target OS: Debian/Ubuntu
+
+## Supported Platforms
+
+- Ubuntu 22.04 (Jammy)
+- Ubuntu 24.04 (Noble)
 
 ## Role Variables
 
