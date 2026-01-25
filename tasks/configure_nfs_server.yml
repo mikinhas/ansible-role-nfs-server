@@ -1,13 +1,14 @@
 ---
 
-- name: Create Root NFS Directory
+- name: Create NFS export directories
   become: true
   ansible.builtin.file:
-    path: "{{ nfs_server_directory }}"
+    path: "{{ item.path }}"
     state: directory
-    owner: "{{ nfs_server_directory_owner }}"
-    group: "{{ nfs_server_directory_group }}"
-    mode: "{{ nfs_server_directory_mode }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  loop: "{{ nfs_server_exports }}"
 
 - name: Configure Exports file
   become: true
